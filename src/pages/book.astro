@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import { site, book } from '../config';
+import { parts, quotes } from '../data/book';
+import { Content as Excerpt, frontmatter as excerpt } from '../content/book/excerpt.md';
+
+const readers = [
+  'Your AI setup goes stale every few months, and you rebuild it each time.',
+  'You cannot tell whether the code the agent wrote is actually correct.',
+  'Your token bill keeps growing and the agent is still slow.',
+];
+
+let n = 0;
+const numbered = parts.map((part) => ({
+  ...part,
+  chapters: part.chapters.map((title) => ({ title, number: ++n })),
+}));
+---
+
+<Base
+  title={`${book.title} | A book by George Gens`}
+  description="A book for developers working with AI coding agents: what survives every new model, how to verify agent work, and how to bring AI into a company. Read chapter 2 free."
+>
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 pt-12 pb-16 sm:px-6 md:pt-20">
+    <Eyebrow>The book / in progress</Eyebrow>
+    <h1 class="text-5xl font-bold text-white md:text-7xl">{book.title}</h1>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed md:text-xl">
+      Tools change every three months. This book teaches what survives the change: clear intent
+      going in, trustworthy checks coming out.
+    </p>
+    <p class="mt-3 font-mono text-sm text-slate-400">By {site.person}</p>
+    <div class="mt-10 flex flex-wrap items-center gap-4">
+      {
+        book.buyUrl ? (
+          <Button href={book.buyUrl} external>{book.buyLabel}</Button>
+        ) : (
+          <span class="inline-flex items-center gap-2 rounded-md border border-cyan-300/30 bg-cyan-950/40 px-5 py-3 font-semibold text-cyan-200">
+            <span class="h-2 w-2 rounded-full bg-cyan-300" aria-hidden="true" /> Coming soon
+          </span>
+        )
+      }
+      <Button href="#excerpt" variant="secondary">Read chapter 2 free</Button>
+    </div>
+  </section>
+
+  <!-- Who it is for -->
+  <section class="border-y border-white/10 bg-slate-900/60">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <Eyebrow>Who it is for</Eyebrow>
+      <h2 class="max-w-2xl text-3xl font-bold text-white">
+        Developers who already use AI and want it to hold up.
+      </h2>
+      <ul class="mt-8 grid gap-6 md:grid-cols-3">
+        {
+          readers.map((r) => (
+            <li class="rounded-lg border border-white/10 bg-white/5 p-6 text-slate-300">{r}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quotes -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <Eyebrow>From the book</Eyebrow>
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      {
+        quotes.map((q) => (
+          <figure class="rounded-lg border border-white/10 bg-white/5 p-6">
+            <blockquote class="text-lg leading-relaxed font-medium text-white">“{q.text}”</blockquote>
+            <figcaption class="mt-3 font-mono text-sm text-slate-400">Chapter {q.chapter}</figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Contents -->
+  <section class="border-y border-white/10 bg-slate-900/60">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      <Eyebrow>Contents</Eyebrow>
+      <h2 class="text-3xl font-bold text-white">Five parts, eighteen questions</h2>
+      <div class="mt-10 grid gap-x-10 gap-y-10 md:grid-cols-2">
+        {
+          numbered.map((part, i) => (
+            <div>
+              <h3 class="mb-3 font-mono text-sm tracking-wider text-cyan-300 uppercase">
+                Part {i + 1} · {part.title}
+              </h3>
+              <ol class="space-y-2">
+                {part.chapters.map((c) => (
+                  <li class="flex gap-3">
+                    <span class="w-6 shrink-0 text-right font-mono text-slate-500">{c.number}</span>
+                    <span class:list={[c.number === excerpt.chapter ? 'text-white' : 'text-slate-300']}>
+                      {c.title}
+                      {c.number === excerpt.chapter && (
+                        <a href="#excerpt" class="ml-2 text-sm font-semibold text-cyan-300 hover:text-white">
+                          Free below
+                        </a>
+                      )}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Excerpt -->
+  <article id="excerpt" class="mx-auto max-w-3xl scroll-mt-8 px-4 py-20 sm:px-6">
+    <Eyebrow>Free chapter / {excerpt.chapter}</Eyebrow>
+    <h2 class="text-3xl font-bold text-white md:text-4xl">{excerpt.title}</h2>
+    <div class="prose-dark mt-4">
+      <Excerpt />
+    </div>
+  </article>
+
+  <!-- End CTA -->
+  <section class="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="rounded-lg border border-cyan-300/20 bg-gradient-to-br from-cyan-950/80 to-slate-900 p-8">
+        <h2 class="text-2xl font-bold text-white">Want to know when it is out?</h2>
+        <p class="mt-3">
+          Send a short note through the contact form and you will hear when the book is ready.
+        </p>
+        <div class="mt-6">
+          {
+            book.buyUrl ? (
+              <Button href={book.buyUrl} external>{book.buyLabel}</Button>
+            ) : (
+              <Button href={site.contactUrl} external>Get in touch</Button>
+            )
+          }
+        </div>
+      </div>
+      <div class="rounded-lg border border-white/10 bg-white/5 p-8">
+        <h2 class="text-2xl font-bold text-white">Want this set up for your team?</h2>
+        <p class="mt-3">
+          The book is what I do in client work: find the bottleneck, change one workflow, and add
+          the checks that make it safe.
+        </p>
+        <div class="mt-6">
+          <Button href="/services/" variant="secondary">See services</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,13 +1,17 @@
 {
-  "devDependencies": {
-    "autoprefixer": "^10.6.1",
-    "concurrently": "^9.1.0",
-    "postcss": "^8.5.28",
-    "tailwindcss": "^3.4.19",
-    "vite": "^8.3.0"
-  },
+  "name": "giant-solutions-site",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "build": "tailwindcss -i ./styles.css -o ./dist/output.css --watch",
-    "dev": "concurrently \"npm run build\" \"vite --host 127.0.0.1 --port 8080\""
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check-legacy.mjs dist",
+    "preview": "astro preview",
+    "check:live": "node scripts/check-legacy.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.11",
+    "tailwindcss": "^4.3.5"
   }
 }

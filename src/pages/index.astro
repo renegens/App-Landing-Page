@@ -1,0 +1,155 @@
+---
+import Base from '../layouts/Base.astro';
+import Eyebrow from '../components/Eyebrow.astro';
+import Button from '../components/Button.astro';
+import { site, book, apps } from '../config';
+import { offers } from '../data/offers';
+import { quotes } from '../data/book';
+
+const problems = [
+  {
+    title: 'Your setup goes stale every quarter',
+    text: 'New models and tools arrive every few months. Teams rebuild their workflow each time instead of keeping the parts that last: specs, tests, checks.',
+  },
+  {
+    title: 'Faster coding piles up in review',
+    text: 'If agents write code twice as fast but reviewers cannot keep up, nothing ships sooner. The queue just moves.',
+  },
+  {
+    title: 'Nobody agreed on the rules',
+    text: 'Which tools, on which data, and who answers for merged code. Without a short policy, every developer decides alone.',
+  },
+];
+
+const quote = quotes[0];
+---
+
+<Base title="AI Engineering Consulting | Giant Solutions · George Gens">
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-4 pt-12 pb-20 sm:px-6 md:pt-20">
+    <Eyebrow>AI engineering / {site.person}</Eyebrow>
+    <h1 class="max-w-3xl text-4xl leading-tight font-bold text-white md:text-6xl">
+      Your team writes code with AI now. Make sure it is code you can trust.
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed md:text-xl">
+      Agents made typing cheap. The slow part is now deciding what to build and checking that it
+      works. I help software teams set up AI coding agents so that review, security and QA keep up
+      with them.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-4">
+      <Button href={site.contactUrl} external>Start a conversation</Button>
+      <Button href="/book/#excerpt" variant="secondary">Read a free chapter</Button>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="border-y border-white/10 bg-slate-900/60">
+    <div class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <Eyebrow>The problem</Eyebrow>
+      <h2 class="max-w-2xl text-3xl font-bold text-white">
+        Most teams already use AI. Few have changed how they work around it.
+      </h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {
+          problems.map((p) => (
+            <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+              <h3 class="mb-2 font-semibold text-white">{p.title}</h3>
+              <p class="text-slate-400">{p.text}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <Eyebrow>How I help</Eyebrow>
+    <h2 class="max-w-2xl text-3xl font-bold text-white">Start small. Prove it. Then go further.</h2>
+    <div class="mt-10 grid gap-6 md:grid-cols-3">
+      {
+        offers.map((o, i) => (
+          <a
+            href={`/services/#${o.id}`}
+            class="group flex flex-col rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:border-cyan-300/50"
+          >
+            <span class="mb-3 font-mono text-cyan-300">0{i + 1}</span>
+            <h3 class="mb-2 text-lg font-semibold text-white">{o.name}</h3>
+            <p class="flex-1 text-slate-400">{o.summary}</p>
+            <span class="mt-4 text-sm font-semibold text-cyan-300 group-hover:text-white">
+              Details →
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Book teaser -->
+  <section class="border-y border-white/10 bg-gradient-to-br from-cyan-950/60 to-slate-900">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:px-6 md:grid-cols-2 md:items-center">
+      <div>
+        <Eyebrow>The book / in progress</Eyebrow>
+        <h2 class="text-3xl font-bold text-white">{book.title}</h2>
+        <p class="mt-4 text-lg leading-relaxed">
+          Tools change every three months. This book is about what survives the change: clear
+          intent going in, trustworthy checks coming out. Eighteen chapters, from how an agent
+          actually works to bringing AI into a company.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <Button href="/book/#excerpt">Read chapter 2 free</Button>
+          <Button href="/book/" variant="secondary">See the contents</Button>
+        </div>
+      </div>
+      <figure class="rounded-lg border border-white/10 bg-slate-950/60 p-8">
+        <blockquote class="text-xl leading-relaxed font-medium text-white">“{quote.text}”</blockquote>
+        <figcaption class="mt-4 font-mono text-sm text-slate-400">
+          {book.title}, chapter {quote.chapter}
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Also build -->
+  <section class="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+    <div class="grid gap-10 md:grid-cols-2">
+      <div>
+        <Eyebrow>Also</Eyebrow>
+        <h2 class="text-3xl font-bold text-white">Custom software and robotics</h2>
+        <p class="mt-4 text-lg leading-relaxed">
+          Giant Solutions also builds: mobile apps for iOS and Android, custom software, and
+          robotics integration. If you need something built rather than set up, get in touch.
+        </p>
+        <div class="mt-8">
+          <Button href={site.contactUrl} variant="secondary" external>Tell me what you need</Button>
+        </div>
+      </div>
+      <div class="space-y-6">
+        {
+          apps.map((app) => (
+            <div class="rounded-lg border border-white/10 bg-white/5 p-6">
+              <p class="mb-2 font-mono text-xs tracking-[0.2em] text-cyan-300 uppercase">
+                Our app / {app.platform}
+              </p>
+              <h3 class="text-xl font-semibold text-white">{app.name}</h3>
+              <p class="mt-2 text-slate-400">{app.description}</p>
+              <div class="mt-6 flex flex-wrap items-center gap-4">
+                <a href={app.playStore} target="_blank" rel="noopener noreferrer">
+                  <img src="/Play Store.svg" class="h-11" alt={`Get ${app.name} on Google Play`} />
+                </a>
+                <a
+                  href={app.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-sm font-semibold text-cyan-300 hover:text-white"
+                >
+                  Source code ↗
+                </a>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

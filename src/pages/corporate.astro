@@ -1,0 +1,154 @@
+---
+// Company registry details. Reachable at /corporate/ and, on Netlify, /corporate.html.
+// Links use absolute paths so they work from both URLs.
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Corporate Information | Giant Solutions"
+  description="Company registry details for GIANT PL P.C. (Giant Solutions): GEMI number, VAT ID, registered address, activities and financial statements."
+>
+	<div class="mx-auto max-w-4xl px-4 py-12 sm:px-6 sm:py-16">
+		<p class="mb-3 font-mono text-xs font-medium uppercase tracking-[0.3em] text-cyan-300">COMPANY / REGISTRY</p>
+		<h1 class="text-3xl md:text-4xl font-bold text-white mb-6">Corporate Information</h1>
+
+		<!-- Quick navigation -->
+		<nav class="mb-10 rounded-lg border border-white/10 bg-slate-900/80 p-4">
+			<h2 class="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-2">Quick lookup</h2>
+			<ul class="flex flex-wrap gap-x-4 gap-y-1 text-sm">
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#company">Company details</a></li>
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#chamber">Chamber of commerce</a></li>
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#purpose">Corporate purpose</a></li>
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#activities">Activities (KAD)</a></li>
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#address">Address</a></li>
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#partners">Partners</a></li>
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#contact">Contact</a></li>
+				<li><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="#financials">Economic data (PDF)</a></li>
+			</ul>
+		</nav>
+
+		<section id="financials" class="mb-10 rounded-lg border border-cyan-300/20 bg-gradient-to-br from-cyan-950/80 to-slate-900 p-6">
+			<h2 class="text-xl font-semibold text-white mb-2">Economic data</h2>
+			<p class="text-slate-300 mb-4">Download the 2025 financial statements and supporting economic data.</p>
+			<a class="inline-flex items-center px-4 py-2 rounded-md bg-cyan-400 font-semibold text-slate-950 hover:bg-cyan-300" href="/corporate/ΟΙΚΟΝΟΜΙΚΕΣ ΚΑΤΑΣΤΑΣΕΙΣ 2025.pdf" download>
+				Download economic data (PDF)
+			</a>
+		</section>
+
+		<div class="space-y-10">
+			<!-- Company details -->
+			<section id="company" class="scroll-mt-6">
+				<h2 class="text-xl font-semibold text-white mb-4 pb-2 border-b border-white/10">Company Details (Εταιρικά Στοιχεία)</h2>
+				<div class="overflow-x-auto">
+					<table class="w-full text-left border-collapse">
+						<tbody class="divide-y divide-white/10">
+							<tr><th class="py-2 pr-4 font-medium text-white align-top w-64">Company name</th><td class="py-2">GIANT PL Ι.Κ.Ε. (GIANT PL P.C.)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Αριθμός ΓΕΜΗ (GEMI number)</th><td class="py-2">159516140000</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">EUID</th><td class="py-2">ELGEMI.159516140000</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">ΑΦΜ (VAT / tax ID)</th><td class="py-2">801580051</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Νομική μορφή (Legal form)</th><td class="py-2">Ι.Κ.Ε. — Ιδιωτική Κεφαλαιουχική Εταιρεία (Private Capital Company)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Κατάσταση (Status)</th><td class="py-2">Ενεργή (Active) from 26 May 2021</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Ημ/νία σύστασης (Incorporation date)</th><td class="py-2">26/05/2021</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Κεφάλαιο (Share capital)</th><td class="py-2">500,00 €</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Είδος / αριθμός μετοχών (Share type / count)</th><td class="py-2">Κεφαλαιικές (Capital shares): 5 μετοχές (5 shares) × 100,00 €</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Αρμόδια Υπηρεσία ΓΕΜΗ (Competent GEMI authority)</th><td class="py-2">Επιμελητήριο Λάρισας (Larisa Chamber of Commerce)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Τμήμα Επιμελητηρίου (Chamber department)</th><td class="py-2">Μεταποιητικό (Manufacturing / Industry)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Αριθμός Μητρώου Επιμελητηρίου (Chamber registry number)</th><td class="py-2">427055</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Ημερομηνία εγγραφής (Registration date)</th><td class="py-2">26/05/2021</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Αρμόδια ΔΟΥ (Competent tax office)</th><td class="py-2">ΔΟΥ Λάρισας (Larisa Tax Office)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Λήξη 1ης διαχ. περιόδου (1st managerial period expiry)</th><td class="py-2">Απεριόριστη (Indefinite)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Official record</th><td class="py-2"><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="https://publicity.businessportal.gr/company/159516140000" target="_blank" rel="noopener noreferrer">View on ΓΕΜΗ Publicity Portal</a></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- Chamber -->
+			<section id="chamber" class="scroll-mt-6">
+				<h2 class="text-xl font-semibold text-white mb-4 pb-2 border-b border-white/10">Επιμελητήριο Λάρισας (Larisa Chamber of Commerce)</h2>
+				<div class="overflow-x-auto">
+					<table class="w-full text-left border-collapse">
+						<tbody class="divide-y divide-white/10">
+							<tr><th class="py-2 pr-4 font-medium text-white align-top w-64">Τηλέφωνο επικοινωνίας (Phone)</th><td class="py-2"><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="tel:+302410255388">2410 255 388</a></td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Ιστοσελίδα (Website)</th><td class="py-2"><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="http://www.larcci.gr" target="_blank" rel="noopener noreferrer">www.larcci.gr</a></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- Corporate purpose -->
+			<section id="purpose" class="scroll-mt-6">
+				<h2 class="text-xl font-semibold text-white mb-4 pb-2 border-b border-white/10">Σκοπός (Corporate Purpose)</h2>
+				<p class="leading-relaxed mb-3">Υπηρεσίες σχεδιασμού και ανάπτυξης τεχνολογιών της πληροφορίας (Design and development of information technology), υπηρεσίες για δίκτυα και συστήματα (services for networks and systems), παραγωγή πρωτοτύπων λογισμικού (software prototype production), παραγωγή πρωτοτύπων άλλου λογισμικού (production of other software prototypes), υπηρεσίες επεξεργασίας δεδομένων (data processing services), υπηρεσίες ιστοφιλοξενίας (web hosting), παροχή υπηρεσιών εφαρμογών πληροφορικής (provision of IT application services), άλλες υπηρεσίες φιλοξενίας και υποδομής ΙΤ (other hosting and IT infrastructure services), μεταδοσία συνέχους ροής εικόνας και ήχου (streaming of image and audio), διάθεση διαφημιστικού χώρου στο διαδίκτυο (online advertising space provision), παραγωγή περιεχομένου δικτυακών πυλών (web portal content production), αγοραπωλησία ιδιοκτητών ακινήτων (purchase and sale of real estate), εκμίσθωση και διαχείριση ιδιοκτητών ή μισθωμένων ακινήτων (rental and management of owned or leased real estate), υπηρεσίες διαχείρισης ακινήτων εναντί αμοιβής ή βάσει συμβάσεως (property management for fee or pursuant to contract), δραστηριότητες διαχείρισης κεφαλαίων (asset management activities).</p>
+			</section>
+
+			<!-- Activities KAD -->
+			<section id="activities" class="scroll-mt-6">
+				<h2 class="text-xl font-semibold text-white mb-4 pb-2 border-b border-white/10">Κύριες και Δευτερεύουσες Δραστηριότητες (Main &amp; Secondary Activities) — ΚΑΔ</h2>
+				<div class="overflow-x-auto">
+					<table class="w-full text-left border-collapse text-sm">
+						<thead>
+							<tr class="border-b border-white/20"><th class="py-2 pr-4 font-medium text-white w-24">Code</th><th class="py-2 font-medium text-white">Description (GR)</th><th class="py-2 font-medium text-white hidden md:table-cell">Description (EN)</th></tr>
+						</thead>
+						<tbody class="divide-y divide-white/10">
+							<tr><td class="py-2 pr-4 font-mono font-medium">62011000</td><td class="py-2">Κύριος ΚΑΔ — Υπηρεσίες σχεδιασμού και ανάπτυξης τεχνολογιών της πληροφορίας</td><td class="py-2 text-slate-400 hidden md:table-cell">Main — IT design and development services</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">62011200</td><td class="py-2">Υπηρεσίες σχεδιασμού και ανάπτυξης τεχνολογιών για δίκτυα και συστήματα</td><td class="py-2 text-slate-400 hidden md:table-cell">IT services for networks and systems</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">62012000</td><td class="py-2">Παραγωγή πρωτοτύπων λογισμικού</td><td class="py-2 text-slate-400 hidden md:table-cell">Software prototype production</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">62012900</td><td class="py-2">Παραγωγή πρωτοτύπων άλλου λογισμικού</td><td class="py-2 text-slate-400 hidden md:table-cell">Other software prototype production</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63111100</td><td class="py-2">Υπηρεσίες επεξεργασίας δεδομένων</td><td class="py-2 text-slate-400 hidden md:table-cell">Data processing services</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63111200</td><td class="py-2">Υπηρεσίες ιστοφιλοξενίας (web hosting)</td><td class="py-2 text-slate-400 hidden md:table-cell">Web hosting services</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63111300</td><td class="py-2">Παροχή υπηρεσιών εφαρμογών πληροφορικής</td><td class="py-2 text-slate-400 hidden md:table-cell">IT application service provision</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63111900</td><td class="py-2">Άλλες υπηρεσίες φιλοξενίας και υποδομής ΙΤ</td><td class="py-2 text-slate-400 hidden md:table-cell">Other hosting and IT infrastructure services</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63112100</td><td class="py-2">Μεταδοσία συνέχους ροής εικόνας</td><td class="py-2 text-slate-400 hidden md:table-cell">Continuous image stream transmission</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63112200</td><td class="py-2">Μεταδοσία συνέχους ροής ήχου</td><td class="py-2 text-slate-400 hidden md:table-cell">Continuous audio stream transmission</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63113000</td><td class="py-2">Διάθεση διαφημιστικού χώρου ή χρόνου στο διαδίκτυο</td><td class="py-2 text-slate-400 hidden md:table-cell">Provision of online advertising space or time</td></tr>
+							<tr><td class="py-2 pr-4 font-mono font-medium">63121000</td><td class="py-2">Παραγωγή περιεχομένου δικτυακών πυλών (web portals)</td><td class="py-2 text-slate-400 hidden md:table-cell">Web portal content production</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- Address -->
+			<section id="address" class="scroll-mt-6">
+				<h2 class="text-xl font-semibold text-white mb-4 pb-2 border-b border-white/10">Διεύθυνση (Registered Address)</h2>
+				<div class="overflow-x-auto">
+					<table class="w-full text-left border-collapse">
+						<tbody class="divide-y divide-white/10">
+							<tr><th class="py-2 pr-4 font-medium text-white align-top w-64">Street / Location</th><td class="py-2">Πλατύκαμπος 0, Πλατύκαμπος (Platykampos)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Region</th><td class="py-2">Κιλελέρ / Λάρισα (Kileler / Larisa)</td></tr>
+							<tr><th class="py-2 pr-4 font-medium text-white align-top">Postal code / Country</th><td class="py-2">40009, Greece</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- Partners -->
+			<section id="partners" class="scroll-mt-6">
+				<h2 class="text-xl font-semibold text-white mb-4 pb-2 border-b border-white/10">Εταίροι (Partners)</h2>
+				<div class="overflow-x-auto">
+					<table class="w-full text-left border-collapse">
+						<thead>
+							<tr class="border-b border-white/20"><th class="py-2 pr-4 font-medium text-white">Name</th><th class="py-2 font-medium text-white">Role (GR / EN)</th><th class="py-2 font-medium text-white">Stake</th></tr>
+						</thead>
+						<tbody class="divide-y divide-white/10">
+							<tr><td class="py-2 pr-4 font-medium">Γκενς Ρενέ</td><td class="py-2">Μέλος &amp; Διαχειριστής (Member &amp; Administrator)</td><td class="py-2">80%</td></tr>
+							<tr><td class="py-2 pr-4 font-medium">Δαλαμπύρα Ζωή</td><td class="py-2">Εταίρος - Μέλος (Partner - Member)</td><td class="py-2">20%</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+
+			<!-- Contact -->
+			<section id="contact" class="scroll-mt-6">
+				<h2 class="text-xl font-semibold text-white mb-4 pb-2 border-b border-white/10">Επικοινωνία (Contact)</h2>
+				<div class="overflow-x-auto">
+					<table class="w-full text-left border-collapse">
+						<tbody class="divide-y divide-white/10">
+							<tr><th class="py-2 pr-4 font-medium text-white align-top w-64">Email</th><td class="py-2"><a class="text-cyan-300 underline underline-offset-4 hover:text-white" href="mailto:chatzistergiou.office@gmail.com">chatzistergiou.office@gmail.com</a></td></tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</div>
+	</div>
+</Base>
